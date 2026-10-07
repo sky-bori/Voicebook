@@ -41,7 +41,7 @@ button:focus-visible,input:focus-visible,select:focus-visible,textarea:focus-vis
 
 /* ---------- 목록 (양피지 고서) ---------- */
 body{margin:0}
-#home{overflow-y:auto;padding-inline:max(22px,5vw);padding-block:34px 56px;color:var(--ink);
+#home{overflow-y:auto;padding-inline:max(22px,5vw);padding-block:50px 56px;color:var(--ink);
   background-color:#E6D2A3;
   background-image:url("data:image/svg+xml,%3Csvg%20xmlns%3D%27http%3A//www.w3.org/2000/svg%27%20width%3D%27300%27%20height%3D%27300%27%3E%3Cfilter%20id%3D%27n%27%3E%3CfeTurbulence%20type%3D%27fractalNoise%27%20baseFrequency%3D%270.8%27%20numOctaves%3D%273%27%20stitchTiles%3D%27stitch%27/%3E%3CfeColorMatrix%20values%3D%270%200%200%200%200.35%200%200%200%200%200.22%200%200%200%200%200.08%200%200%200%200.28%200%27/%3E%3C/filter%3E%3Crect%20width%3D%27300%27%20height%3D%27300%27%20filter%3D%27url%28%23n%29%27/%3E%3C/svg%3E"),url("data:image/svg+xml,%3Csvg%20xmlns%3D%27http%3A//www.w3.org/2000/svg%27%20width%3D%27300%27%20height%3D%27300%27%3E%3Cfilter%20id%3D%27n%27%3E%3CfeTurbulence%20type%3D%27fractalNoise%27%20baseFrequency%3D%270.012%27%20numOctaves%3D%273%27%20stitchTiles%3D%27stitch%27/%3E%3CfeColorMatrix%20values%3D%270%200%200%200%200.45%200%200%200%200%200.28%200%200%200%200%200.1%200%200%200%200.5%200%27/%3E%3C/filter%3E%3Crect%20width%3D%27300%27%20height%3D%27300%27%20filter%3D%27url%28%23n%29%27/%3E%3C/svg%3E"),radial-gradient(ellipse at 50% 30%,#F3E6C4 0%,#E6D2A3 60%,#C9AB72 100%);
   box-shadow:inset 0 0 110px 26px rgba(110,70,20,.5)}
@@ -55,7 +55,11 @@ body{margin:0}
 .tag{margin:0;color:#5A3A1C;font:400 clamp(22px,3.6vw,28px)/1.3 var(--font-hand);overflow-wrap:anywhere}
 .iconbtn{width:46px;height:46px;border-radius:50%;display:grid;place-items:center;background:var(--panel);border:1.5px solid #8A6338;box-shadow:2px 3px 0 rgba(110,70,20,.35);color:#4A2A12}
 .iconbtn:active{transform:translate(1px,1px);box-shadow:1px 1px 0 rgba(110,70,20,.35)}
-#homeSet{position:absolute;right:0;top:4px}
+#homeSet{position:absolute;right:0;top:12px}
+.fsbtn{width:34px;height:34px;border-radius:50%;flex:none;opacity:.9}
+.fsbtn .ic{width:1.15em;height:1.15em}
+.fsHome{position:fixed;top:8px;right:8px;z-index:8}
+#app:not([data-mode="home"]) .fsHome{display:none}
 .resume{display:flex;align-items:center;gap:14px;padding:12px 18px;border-radius:3px;background:rgba(250,240,214,.8);border:1.5px solid #8A6338;border-left:8px solid #9C5B2E;box-shadow:2px 3px 0 rgba(110,70,20,.35);text-align:left;width:100%;color:var(--ink)}
 .resume .rt{flex:1;min-width:0}
 .resume small{display:block;color:#7A5530;font:400 18px var(--font-hand2)}
@@ -240,6 +244,7 @@ details summary{cursor:pointer;min-height:44px;display:flex;align-items:center}
 #toast{position:absolute;left:50%;bottom:calc(110px + env(safe-area-inset-bottom,0px));transform:translateX(-50%);z-index:40;background:#1B1B1B;color:#fff;padding:10px 16px;border-radius:14px;max-width:min(520px,92%);text-align:center;font-size:16px;box-shadow:4px 4px 0 #0006}
 
 @media (max-width:640px){
+  .ptop{gap:6px}.ptop .iconbtn{width:42px;height:42px}.ptop .fsbtn{width:32px;height:32px}
   .dock{gap:8px 10px}
   .cbtn{width:50px;height:50px}.cbtn.big{width:66px;height:66px}
   .seg button{padding:0 12px}
@@ -276,11 +281,14 @@ details summary{cursor:pointer;min-height:44px;display:flex;align-items:center}
   <symbol id="i-plus" viewBox="0 0 24 24"><path d="M11 5h2v6h6v2h-6v6h-2v-6H5v-2h6z" stroke="none"/></symbol>
   <symbol id="i-star" viewBox="0 0 24 24"><path d="M12 2l3 6.9 7.4.6-5.6 4.8 1.7 7.2L12 17.8 5.5 21.5l1.7-7.2L1.6 9.5 9 8.9z" stroke="none"/></symbol>
   <symbol id="i-star2" viewBox="0 0 24 24"><path d="M12 2.6l2.9 6.2 6.7.8-4.9 4.6 1.3 6.7L12 17.6l-6 3.3 1.3-6.7L2.4 9.6l6.7-.8z" stroke-linejoin="round"/></symbol>
+  <symbol id="i-full" viewBox="0 0 24 24"><path d="M4 9V4h5M20 9V4h-5M4 15v5h5M20 15v5h-5" fill="none" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"/></symbol>
+  <symbol id="i-fullexit" viewBox="0 0 24 24"><path d="M9 4v5H4M15 4v5h5M9 20v-5H4M15 20v-5h5" fill="none" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"/></symbol>
   <symbol id="i-close" viewBox="0 0 24 24"><path d="M6 6l12 12M18 6L6 18" fill="none" stroke-width="2.6" stroke-linecap="round"/></symbol>
   <symbol id="i-voice" viewBox="0 0 24 24"><path d="M3 9v6h4l5 4V5L7 9H3zm13.5 3a4.5 4.5 0 00-2.5-4v8a4.5 4.5 0 002.5-4z" stroke="none"/></symbol>
 </svg>
 
 <div id="app" data-mode="home">
+  <button class="iconbtn fsbtn fsHome" aria-label="전체화면 켜기"></button>
   <div class="frame" aria-hidden="true"></div>
   <!-- ===== 목록 ===== -->
   <section id="home" class="view" aria-label="이야기 목록">
@@ -318,6 +326,7 @@ details summary{cursor:pointer;min-height:44px;display:flex;align-items:center}
         <button data-m="game" aria-pressed="false">게임</button>
       </div>
       <button class="iconbtn" id="pSet" aria-label="목소리와 화면 설정"><svg class="ic"><use href="#i-tune"/></svg></button>
+      <button class="iconbtn fsbtn" aria-label="전체화면 켜기"></button>
     </header>
     <div class="prog" id="progRow">
       <input type="range" id="scrub" min="0" max="0" value="0" aria-label="읽는 위치">
@@ -375,11 +384,12 @@ const store={mem:{},
 
 /* ---------- 설정 ---------- */
 const MOODS={calm:{n:'차분한',rate:.85,pitch:1},cheer:{n:'발랄한',rate:1.08,pitch:1.3},clear:{n:'또박또박',rate:.75,pitch:1},bold:{n:'씩씩한',rate:1,pitch:.8}};
-const BASE=.78; // 표시되는 ×1.0 속도 = 기기 속도 0.78배 (예전보다 느리게)
+const BASE=.70; // 표시되는 ×1.0 속도 = 기기 속도 0.70배 (처음 .78에서 10% 더 느리게)
 const DEF={gender:'f',mood:'calm',speed:1,accent:'auto',fs:1,shift:0,ko:true,loop:false,voiceF:'',voiceM:'',gcount:15,gdiff:'easy',gstart:'here'};
 const S=Object.assign({},DEF,store.get('settings',{}));
 const saveS=()=>store.set('settings',S);
-if(S.v!==3){if(S.v!==2)S.speed=1;if(S.shift===100)S.shift=0;S.v=3;saveS()}
+if(S.v!==4){if(S.v!==2&&S.v!==3)S.speed=1;S.shift=0;S.v=4;saveS()} // v4: 예전에 저장된 싱크 값(+100, +800 등)을 한 번 0으로
+S.shift=Math.max(-400,Math.min(400,+S.shift||0));
 const DIFF={easy:{n:'쉬움',perfect:230,good:650},normal:{n:'보통',perfect:120,good:430},hard:{n:'어려움',perfect:40,good:270}};
 
 /* ---------- 문장 나누기 / 단어 가중치 ---------- */
@@ -698,6 +708,21 @@ function goUnit(u,auto,instant){
   if(mode==='read')savePos();
   if(auto)playFrom(u,0);
 }
+
+/* ---------- 전체화면 ---------- */
+const FS_OK=!!(document.documentElement.requestFullscreen||document.documentElement.webkitRequestFullscreen);
+const fsEl=()=>document.fullscreenElement||document.webkitFullscreenElement;
+function fsToggle(){
+  try{
+    let r;
+    if(fsEl())r=(document.exitFullscreen||document.webkitExitFullscreen).call(document);
+    else{const d=document.documentElement;r=(d.requestFullscreen||d.webkitRequestFullscreen).call(d)}
+    if(r&&r.catch)r.catch(()=>toast('이 화면에서는 전체화면을 켤 수 없어요. 새 탭이나 홈 화면 바로가기로 열어 보세요.',3600));
+  }catch(e){toast('이 화면에서는 전체화면을 켤 수 없어요.',3000)}
+}
+function fsSync(){const on=!!fsEl();$$('.fsbtn').forEach(b=>{b.innerHTML=`<svg class="ic"><use href="#i-${on?'fullexit':'full'}"/></svg>`;b.setAttribute('aria-label',on?'전체화면 끄기':'전체화면 켜기');b.setAttribute('aria-pressed',on)})}
+$$('.fsbtn').forEach(b=>{if(!FS_OK){b.hidden=true;return}b.onclick=fsToggle});
+['fullscreenchange','webkitfullscreenchange'].forEach(e=>document.addEventListener(e,fsSync));fsSync();
 
 /* ---------- 읽기 엔진 ---------- */
 const cal=store.get('cal',{});let ttsDead=false,ttsEver=false,wake=null,gapT=0,watchT=0,simT=0,curUtt=null;
@@ -1069,7 +1094,7 @@ function openSheet(){
    ${accs.length>1?`<div class="sec"><h3>영어 억양</h3><select id="shAcc"><option value="auto">자동 (미국식 우선)</option>${accs.map(a=>`<option value="${a}" ${S.accent===a?'selected':''}>${ACC[a]}</option>`).join('')}</select></div>`:''}
    <div class="sec"><h3>글자 크기</h3><div class="opts" id="shFs">${[[.8,'작게'],[1,'보통'],[1.25,'크게'],[1.5,'아주 크게']].map(([v,n])=>`<button class="opt" data-v="${v}" aria-pressed="${S.fs===v}">${n}</button>`).join('')}</div></div>
    <div class="sec"><h3>하이라이트 싱크 <span id="shShiftV">${S.shift>0?'+':''}${S.shift}ms</span></h3>
-     <input type="range" id="shShift" min="-500" max="900" step="50" value="${S.shift}">
+     <input type="range" id="shShift" min="-400" max="400" step="50" value="${S.shift}">
      <p class="hint">글자가 소리보다 느리면 왼쪽(−)으로, 빠르면 오른쪽(+)으로 옮겨요. 읽는 속도는 이야기를 들으면서 자동으로 맞춰지고 기기에 저장돼서, 매번 조정하지 않아도 돼요. 게임 판정도 같은 기준을 써요.</p>
      <button class="btn" id="shZero">기본값으로 (자동 학습도 처음부터)</button></div>
    <details class="sec"><summary>목소리 직접 고르기 (${VOICES.length}개)</summary>
